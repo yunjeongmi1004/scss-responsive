@@ -1,0 +1,129 @@
+@use "../abstracts/" as *;
+@use "sass:list";
+
+$formSetting:(
+    "height":rem(44),
+    "border":rem(1) solid #e1e1e1,
+    "borderRadius":rem(0),
+    "bgColor":#fafafa,
+    "paddingInline":rem(20),
+    "fontColor":$gray66,
+    "fontSize":rem(16),
+    "lineHeight":1,
+    "letterSpacing":rem(-.5),
+    "placeholderColor":$graycc,
+    "disableBgColor":rgba(#eee, .9),
+    "readonlyBgColor":rgba(#eee, .6),
+);
+
+
+$selectSetting:(
+    "bgUrl":"bg_select.svg",
+    "iconPosition":rem(20),
+    "bgWidth":12,
+    "paddingInline":20,
+    "iconWidth":12
+);
+
+
+$radioCheckSetting:(
+    1:(
+        "className" : ".check-type1",
+        "offImage" : "bg_check_off.svg",
+        "onImage" : "bg_check_on.svg",
+        "width" : rem(26),
+        "height":rem(26)
+    ),
+    2:(
+        "className" : ".check-type2",
+        "offImage" : "bg_check_off2.svg",
+        "onImage" : "bg_chk_on2.svg",
+        "width" : rem(18),
+        "height":rem(18)
+    ),
+);
+
+
+%form{
+
+
+    height:var(--height, map-get($formSetting,height));
+    // height:map-get($formSetting,height);
+    border:map-get($formSetting,border);
+    box-sizing: border-box;
+    border-radius:map-get($formSetting,borderRadius);
+    background-color:map-get($formSetting,bgColor);
+    padding-inline:map-get($formSetting, paddingInline);
+    color:map-get($formSetting, fontColor);
+    font-size: map-get($formSetting, fontSize);
+    line-height: map-get($formSetting, lineHeight);
+    letter-spacing: map-get($formSetting, letterSpacing);
+
+    &::placeholder{
+        color:map-get($formSetting, placeholderColor);
+    }
+    &:disabled{
+        background-color:map-get($formSetting,disableBgColor);
+    }&[readonly]{
+        background-color:map-get($formSetting,readonlyBgColor);
+
+    }
+    
+}
+
+
+
+
+@layer Components.Form{
+
+%label{
+    display:inline-flex;
+    gap:rem(4);
+    align-items: center;
+    color:$gray66;
+    font-size: rem(12);
+    line-height: rem(12);
+    letter-spacing: rem(-.5);
+    .login & {
+
+        color:$gray66;
+        font-size:rem(14);
+        font-weight:300;
+        line-height:rem(16);
+        letter-spacing:rem(-0.7);
+    }
+}
+
+.input{
+    @extend %form;
+    width:var(--w, 100%);
+}
+.select{
+    $result:map-get($selectSetting, paddingInline) * 2 + map-get($selectSetting, bgWidth);
+    @extend %form;
+    @include background(map-get($selectSetting, bgUrl), right map-get($selectSetting, iconPosition) center, null, rem( map-get($selectSetting, iconWidth)));
+    padding-right:rem($result);
+    appearance: none;
+    width:var(--w, 100%);
+}
+
+.textarea{
+    @extend %form;
+    width:100%;
+    height:rem(var(--height, 10));
+    padding-block:rem(15);
+    &::placeholder{
+        color:#ddd;
+        font-size: rem(12);
+        line-height: rem(12);
+        letter-spacing: rem(-0.5);
+        font-family: "Noto Sans KR";
+    }
+}
+
+
+
+@for $idx from 1 through list.length($radioCheckSetting) {
+    @include RadioCheckbox($radioCheckSetting, $idx);
+}
+}

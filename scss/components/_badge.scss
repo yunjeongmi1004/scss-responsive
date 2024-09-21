@@ -1,0 +1,77 @@
+@use '../abstracts/' as *;
+@use "sass:list";
+
+
+$badgeSize: (
+    1:(
+        "className": ".base",
+        "height": 34,
+        "fontSize": 14,
+        "paddingInline": 16,
+        "borderWidth": 1,
+        "fontWeight": 700,
+    ),
+);
+$badgeColor:(
+    1:(    
+        'className' : '.orange',
+        'bgColor' :$orange,
+        'borderColor' : $orange,
+        'color' : $white,
+    ),
+    2:(    
+        'className' : '.skyblue',
+        'bgColor' :$skyblue,
+        'borderColor' : $skyblue,
+        'color' : $white,
+    ),
+    3:(    
+        'className' : '.green',
+        'bgColor' :$green,
+        'borderColor' : $green,
+        'color' : $white,
+    ),
+    4:(    
+        'className' : '.blue',
+        'bgColor' :$blue,
+        'borderColor' : $blue,
+        'color' : $white,
+    ),
+    5:(    
+        'className' : '.grayb4',
+        'bgColor' :$grayb4,
+        'borderColor' : $grayb4,
+        'color' : $white,
+    ),
+    6:(    
+        'className' : '.darkgray',
+        'bgColor' :$gray66,
+        'borderColor' : $gray66,
+        'color' : $white,
+    ),
+
+);
+
+@layer Components.Badge{
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:rem(8);
+    box-sizing:border-box;
+    justify-content:center;
+    border-radius:rem(100);
+    &.fullsize{
+        width:100%
+    }
+    @for $idx from 1 through list.length($badgeSize) {
+        @include badgeSize($badgeSize, $idx);
+    }
+    @for $index from 1 through list.length($badgeColor) {
+        @include badgeColor($badgeColor, $index);
+    }
+
+}
+
+
+
+}

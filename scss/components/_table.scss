@@ -1,0 +1,261 @@
+@use '../abstracts/' as *;
+
+
+@layer Components.Table{
+    caption{
+        @include ally-hidden;
+    }
+    .table-type1{
+        @include mobile{
+            margin-inline:rem($mobilePaddingX);
+            width:calc(100% - rem($mobilePaddingX * 2))
+        }
+        thead{
+            th{
+                padding-block:rem(20);
+                color:$gray33;
+                font-size: rem(14);
+                letter-spacing: rem(-0.28);
+                + th{
+                    background:linear-gradient(to right, #e1e1e1, #e1e1e1) no-repeat left / rem(1) rem(16);
+                }
+            }
+            tr{
+                border:rem(1) solid #e1e1e1;
+                border-bottom-color:$gray33;
+            }
+        }
+        tbody{
+            td{
+                padding:rem(26);
+                color:$gray66;
+                font-size:rem(16);
+                letter-spacing: rem(-0.32);
+                text-align:center;
+                border-bottom:rem(1) solid #f3f3f3;
+                &:has(a){
+                    text-align:left;
+                }
+                a{
+                    @include mobile{
+                        @include ellipsis;
+                    }
+                }
+
+            }
+            
+        }
+    }
+
+
+    .table-type2{
+        @include mobile{
+            colgroup{
+                display:none;
+            }
+            &.mxmobile{
+                width:calc(100% - rem($mobilePaddingX * 2));
+            }
+        }
+        thead{
+            background-color:$gray66;
+            @include mobile{
+                display:none;
+            }
+            th{
+                padding-block:rem(20);
+                color:$white;
+                font-size:rem(14);
+            }
+            + th{
+                border-left:rem(1) solid #e1e1e1;
+            }
+
+
+        }
+        tbody{
+            td{
+
+                padding-block:rem(20);
+                border-bottom:rem(1) solid #e1e1e1;
+                color:$gray66;
+                font-size:rem(16);
+                letter-spacing:rem(-0.8);
+                text-align:center;
+                @include mobile{
+                    display:grid;
+                    grid-template-columns: rem(120) 1fr;
+                    text-align: left;
+                    padding:0;
+                    gap:rem(20);
+                    font-size:rem(24);
+                    align-items: center;
+                    border:rem(1) solid #e1e1e1;
+                    + td{
+                        margin-top:rem(-1)
+                    }
+                    &::before{
+               
+                        content:attr(data-text);
+    
+                        text-align:center;
+                        background-color:$gray66;
+                        color:$white;
+                        font-size:rem(22);
+                        padding-block:rem(23);
+                        align-self:stretch;
+                        align-content:center;
+                    }
+
+                }
+                + td{
+                    border-left:rem(1) solid #e1e1e1;
+                }
+            }
+            tr{
+                @include mobile{
+                    display:block;
+                    + tr{
+                        margin-top:rem(20)
+                    }
+                }
+            }
+        }
+    }
+
+    .table-type3{
+
+        border-top:rem(1) solid $gray33;
+        @include mobile{
+            margin-inline:rem(30);
+            width:calc(100% - rem(60));
+            border:none;
+            colgroup{
+                display:none
+            }
+            
+        }
+        tr{
+            border-bottom:rem(1) solid #e1e1e1;
+            @include mobile{
+                border:none;
+            }
+        }
+        :is(th, td){
+            padding:rem(18) rem(20);
+            line-height:rem(14);
+           font-size:rem(16);
+           @include mobile{
+            display:block;
+            padding:0;
+            font-size:rem(26);
+            line-height:1.8;
+           }
+        }
+        th{
+            color:$black;
+           text-align: left;
+            font-weight:500;
+            @include mobile{
+                color:$gray66;
+            }
+
+        }
+        td{
+            color:$gray99;
+            @include mobile{
+                padding-top:rem(10);
+            }
+            
+        }
+    }
+
+    .table-type4{
+
+        @include mobile{
+            margin-inline:rem(30);
+            width:calc(100% - rem($mobilePaddingX * 2));
+            border:none;
+            colgroup{
+                display:none
+            }
+            
+        }
+        tr{
+            border-bottom:rem(1) solid #e1e1e1;
+            @include mobile{
+                display:block;
+                padding-block:rem(30);
+            }
+        }
+        :is(th, td){
+            padding:rem(30);
+            line-height:rem(14);
+           font-size:rem(16);
+           @include mobile{
+            display:block;
+            padding:0;
+            font-size:rem(26);
+            line-height:1.8;
+           }
+        }
+        th{
+            color:$gray33;
+           text-align: left;
+            font-weight:500;
+
+        }
+        td{
+            color:$gray99;
+            @include mobile{
+                padding-top:rem(10);
+            }
+            
+        }
+    }
+    .scroll-table{
+        container:scrollTable / inline-size;
+        @include mobile{
+            position:relative;
+            overflow:hidden;
+            &.active{
+                overflow:auto;
+                &::before,
+                &::after{
+                    display:none;
+                }
+            }
+            &::before{
+                @include position(a, left, 0, top, 0);
+                content:"";
+                background-color:rgba($black, 0.4);
+                width:100%;
+                height:100%;
+            }
+            &::after{
+                @include position(a, left, 50%, top, 50%);
+                content:'클릭후 \a드래그하세요';
+                white-space:pre;
+                // width:20cqi; // 컨테이너 기준 30퍼센트 크기
+                // width:clamp(최소값, 비례값, 최대값);
+                width:clamp(rem(100), 30cqi, rem(150));
+                
+                aspect-ratio: 1;
+                border-radius:rem(100);
+                background-color:rgba($black, 0.6);
+                // display:flex;
+                // justify-content: center;
+                // align-items:center;
+                text-align:center;
+                align-content:center;
+                color:$white;
+                font-size:clamp(rem(15), 4cqi, rem(20));
+            }
+            > table{
+                width:rem(1000);
+            }
+        }
+    }
+
+
+}
