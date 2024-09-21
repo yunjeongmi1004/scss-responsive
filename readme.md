@@ -1,5 +1,5 @@
 ## scss responsiveweb
 
-![사이트바로가기](http://qr.png)
+![사이트바로가기](https://yunjeongmi1004.github.io/scss-responsive/pages/login.html)
 
-<img src="https://깃경로" alt="">
+<img src="images/qr.png" alt="">

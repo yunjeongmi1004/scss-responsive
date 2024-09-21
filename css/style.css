@@ -147,6 +147,11 @@
   html {
     font-size: 62.5%;
   }
+  @media (1000px > width) {
+    html {
+      font-size: 31.25%;
+    }
+  }
   body {
     font-size: 1rem;
     font-family: "Noto Sans KR", sans-serif;
@@ -294,7 +299,7 @@
     border-color: #333333;
   }
   .btn.ico1::after {
-    background: url(../images/ico_more.svg) no-repeat;
+    background: url(../imagesmin/ico_more.svg) no-repeat;
     background-size: contain;
     content: "";
     width: 1.3rem;
@@ -317,7 +322,7 @@
   }
   .btn-login::before {
     content: "";
-    background: url(../images/ico_login.svg) no-repeat;
+    background: url(../imagesmin/ico_login.svg) no-repeat;
     background-size: contain;
     width: 1.6rem;
     height: 1.9rem;
@@ -344,25 +349,25 @@
   }
   .btn-sitemap::before {
     content: "";
-    background: url(../images/ico_sitemap.svg) no-repeat;
+    background: url(../imagesmin/ico_sitemap.svg) no-repeat;
     background-size: contain;
     width: 1.4rem;
     height: 1.4rem;
   }
   @media (1000px > width) {
     .btn-sitemap::before {
-      background: url(../images/ico_sitemap_mobile.svg) no-repeat;
+      background: url(../imagesmin/ico_sitemap_mobile.svg) no-repeat;
       background-size: contain;
       width: 2.8rem;
       height: 2.8rem;
     }
     body:has(#sitemap:popover-open) .btn-sitemap::before {
-      background: url(../images/ico_close.svg) no-repeat;
+      background: url(../imagesmin/ico_close.svg) no-repeat;
       background-size: contain;
     }
   }
   .btn-search {
-    background: url(../images/ico_search.svg) no-repeat;
+    background: url(../imagesmin/ico_search.svg) no-repeat;
     background-size: contain;
     width: 3rem;
     height: 3rem;
@@ -377,11 +382,11 @@
     cursor: not-allowed;
   }
   .btn-prev {
-    background: url(../images/ico_prev.svg) no-repeat;
+    background: url(../imagesmin/ico_prev.svg) no-repeat;
     background-size: contain;
   }
   .btn-next {
-    background: url(../images/ico_next.svg) no-repeat;
+    background: url(../imagesmin/ico_next.svg) no-repeat;
     background-size: contain;
   }
   .dialog-type1 .btn-group {
@@ -770,7 +775,7 @@
     width: var(--w, 100%);
   }
   .select {
-    background: url(../images/bg_select.svg) no-repeat right 2rem center;
+    background: url(../imagesmin/bg_select.svg) no-repeat right 2rem center;
     background-size: 1.2rem;
     padding-right: 5.2rem;
     appearance: none;
@@ -797,14 +802,14 @@
     clip: rect(1px, 1px, 1px, 1px);
   }
   .check-type1 + label::before {
-    background: url(../images/bg_check_off.svg) no-repeat;
+    background: url(../imagesmin/bg_check_off.svg) no-repeat;
     background-size: contain;
     content: "";
     width: 2.6rem;
     height: 2.6rem;
   }
   .check-type1:checked + label::before {
-    background: url(../images/bg_check_on.svg) no-repeat;
+    background: url(../imagesmin/bg_check_on.svg) no-repeat;
     background-size: contain;
   }
   .check-type2 {
@@ -816,14 +821,14 @@
     clip: rect(1px, 1px, 1px, 1px);
   }
   .check-type2 + label::before {
-    background: url(../images/bg_check_off2.svg) no-repeat;
+    background: url(../imagesmin/bg_check_off2.svg) no-repeat;
     background-size: contain;
     content: "";
     width: 1.8rem;
     height: 1.8rem;
   }
   .check-type2:checked + label::before {
-    background: url(../images/bg_chk_on2.svg) no-repeat;
+    background: url(../imagesmin/bg_chk_on2.svg) no-repeat;
     background-size: contain;
   }
 }
@@ -1211,31 +1216,31 @@
     }
   }
   .visual.sub0 > div::after {
-    background: url(../images/img_visual0.png) no-repeat right 0 bottom 0;
+    background: url(../imagesmin/img_visual0.png) no-repeat right 0 bottom 0;
     background-size: auto;
   }
   .visual.sub1 > div::after {
-    background: url(../images/img_visual1.png) no-repeat right 0 bottom 0;
+    background: url(../imagesmin/img_visual1.png) no-repeat right 0 bottom 0;
     background-size: auto;
   }
   .visual.sub2 > div::after {
-    background: url(../images/img_visual2.png) no-repeat right 0 bottom 0;
+    background: url(../imagesmin/img_visual2.png) no-repeat right 0 bottom 0;
     background-size: auto;
   }
   .visual.sub3 > div::after {
-    background: url(../images/img_visual3.png) no-repeat right 0 bottom 0;
+    background: url(../imagesmin/img_visual3.png) no-repeat right 0 bottom 0;
     background-size: auto;
   }
   .visual.sub4 > div::after {
-    background: url(../images/img_visual4.png) no-repeat right 0 bottom 0;
+    background: url(../imagesmin/img_visual4.png) no-repeat right 0 bottom 0;
     background-size: auto;
   }
   .visual.sub5 > div::after {
-    background: url(../images/img_visual5.png) no-repeat right 0 bottom 0;
+    background: url(../imagesmin/img_visual5.png) no-repeat right 0 bottom 0;
     background-size: auto;
   }
   .visual.sub6 > div::after {
-    background: url(../images/img_visual6.png) no-repeat right 0 bottom 0;
+    background: url(../imagesmin/img_visual6.png) no-repeat right 0 bottom 0;
     background-size: auto;
   }
   body:has(.login) .visual {
@@ -1307,7 +1312,7 @@
     width: 2.4rem;
     height: 2.4rem;
     margin-inline: 2rem;
-    background: url(../images/ico_bread.svg) no-repeat;
+    background: url(../imagesmin/ico_bread.svg) no-repeat;
     background-size: contain;
   }
   .breadcrums__web a {
@@ -1339,7 +1344,7 @@
       flex: 1;
     }
     .breadcrums__mobile > li > button {
-      background: url(../images/ico_bread_mobile.svg) no-repeat right 3rem center;
+      background: url(../imagesmin/ico_bread_mobile.svg) no-repeat right 3rem center;
       background-size: 2rem;
       width: 100%;
       height: 10rem;
